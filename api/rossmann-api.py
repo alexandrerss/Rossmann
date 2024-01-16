@@ -40,7 +40,8 @@ def cerregar(store_id):
 
 def predict(data):
 
-    url = 'https://rossmann-api-h4ab.onrender.com/rossmann/predict'
+    #url = 'https://rossmann-api-h4ab.onrender.com/rossmann/predict'
+    url = 'https://arss-rossmann-api.onrender.com/rossmann/predict'
     header = {'Content-type': 'application/json'}
     data = data
 
