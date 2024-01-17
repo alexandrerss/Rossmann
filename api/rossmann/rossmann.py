@@ -68,7 +68,7 @@ class Rossmann (object):
     
     def preparacao (self,df5):
         
-        df5['competition_distance'] = self.competition_distance.scaler.fit_transform(df5[['competition_distance']].values)
+        df5['competition_distance'] = self.competition_distance_scaler.fit_transform(df5[['competition_distance']].values)
         df5['competition_time_month']= self.competition_time_month_scaler.fit_transform(df5[['competition_time_month']].values)
         df5['promo_time_week']= self.promo_time_week_scaler.fit_transform(df5[['promo_time_week']].values)
         df5['year']= self.year_scaler.fit_transform(df5[['year']].values)
