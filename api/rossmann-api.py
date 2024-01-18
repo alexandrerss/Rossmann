@@ -14,7 +14,7 @@ TOKEN = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
 # https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/getUpdates
 
 # enviar mensagem
-# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/sendMessage?chat_id=840661273&text=Oi Usuario, to bem demais!
+# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/sendMessage?chat_id=840661273&text=Oi Usuario, bom dia!
 
 # webhook
 # https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/setWebhook?url=https://0c7a9df79114bb.lhr.life
