@@ -122,5 +122,5 @@ def index():
         return '<h1> Telegram BOT de previsão de vendas das lojas Rossmann</h1>'
 
 if __name__ == '__main__':
-    port = os.environ.get( 'PORT', 5000 )
+    port = os.environ.get( 'PORT', 10000 )
     app.run( host='0.0.0.0', port=port )
