@@ -1,11 +1,23 @@
 import pandas as pd
 import json
 import requests
-from Flask import Flask, Request, Response
+from flask import Flask, Request, Response
 import os
 
 #constants
-token = '6967319046:AAFL2FPNeAva8Rm-_BVRpGPyl2doYyIDZW8'
+token = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
+
+# Informações do BOT
+# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/getMe
+
+# Get Updates
+# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/getUpdates
+
+# enviar mensagem
+# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/sendMessage?chat_id=840661273&text=Oi Usuario, to bem demais!
+
+# webhook
+# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/setWebhook?url=https://0c7a9df79114bb.lhr.life
 
 # send message
 def enviar_mensagens(chat_id, text ):
@@ -28,15 +40,19 @@ def cerregar(store_id):
     # choose store for prediction
     df_test = df_test[df_test['Store'] == store_id ]
 
-    # remove closed days
-    df_test = df_test[df_test['Open'] != 0]
-    df_test = df_test[~df_test['Open'].isnull()] #lojas diferentes de zero
-    df_test = df_test.drop( 'Id', axis=1 )
+    if not df_test.empty:
+        # remove closed days
+        df_test = df_test[df_test['Open'] != 0]
+        df_test = df_test[~df_test['Open'].isnull()]
+        df_test = df_test.drop( 'Id', axis=1 )
 
-    # convert Dataframe to json
-    data = json.dumps( df_test.to_dict( orient='records' ) )
+        # convert Dataframe to json
+        data = json.dumps( df_test.to_dict( orient='records' ) )
 
-    return cerregar
+    else:
+        data = 'Error'
+        
+    return data
 
 def predict(data):
 
