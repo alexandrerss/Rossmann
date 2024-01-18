@@ -7,7 +7,6 @@ import os
 #constants
 TOKEN = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
 
-
 # Informações do BOT
 # https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/getMe
 
@@ -31,7 +30,7 @@ def enviar_mensagens(chat_id, text ):
     return None
 
 
-def cerregar(store_id):
+def carregar(store_id):
 # carregar o dataset de teste
     df10 = pd.read_csv( "../datasets/test.csv", low_memory=False )
     df_store_raw = pd.read_csv( '../datasets/store.csv', low_memory=False )
@@ -52,7 +51,7 @@ def cerregar(store_id):
         data = json.dumps( df_test.to_dict( orient='records' ) )
 
     else:
-        data = 'Error'
+        data = 'error'
         
     return data
 
@@ -97,7 +96,7 @@ def index():
         
         if store_id != 'error':
             # loading data
-            data = cerregar( store_id )
+            data = carregar( store_id )
 
             if data != 'error':
                 # prediction
