@@ -5,7 +5,11 @@ from flask import Flask, Request, Response
 import os
 
 #constants
+<<<<<<< HEAD
 TOKEN = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
+=======
+token = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
+>>>>>>> 8591f3f0aaa8a75bea44e75a6d4efadb1e7bedf6
 
 # Informações do BOT
 # https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/getMe
