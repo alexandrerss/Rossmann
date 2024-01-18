@@ -5,7 +5,7 @@ from flask import Flask, Request, Response
 import os
 
 #constants
-token = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
+TOKEN = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
 
 # Informações do BOT
 # https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/getMe
@@ -21,13 +21,14 @@ token = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
 
 # send message
 def enviar_mensagens(chat_id, text ):
-    url = 'https://api.telegram.org/bot{}/'.format(token)
-    url + 'sendMessage?chat_id={}/'.format(chat_id)
+    url = 'https://api.telegram.org/bot{}/'.format(TOKEN)
+    url = url + 'sendMessage?chat_id={}/'.format(chat_id)
 
     r = requests.post(url, json={'text' : text})
     print('Status Code {}'.format( r.status_code ) )    
 
     return None
+
 
 def cerregar(store_id):
 # carregar o dataset de teste
@@ -68,6 +69,7 @@ def predict(data):
 
     return d1
 
+
 def analisar_mensagem( message ):
     chat_id = message['message']['chat']['id']
     store_id = message['message']['text']
@@ -83,30 +85,36 @@ def analisar_mensagem( message ):
     return chat_id, store_id
 
 # API initialize
-app = Flask( __name__)
+app = Flask( __name__ )
 
 @app.route( '/', methods=['GET', 'POST'] )
 def index():
-    if requests.method == 'POST':
-        message = requests.get_json()
-        
+    if request.method == 'POST':
+        message = request.get_json()
+                
         chat_id, store_id = analisar_mensagem( message )
         
         if store_id != 'error':
             # loading data
             data = cerregar( store_id )
+
             if data != 'error':
                 # prediction
                 d1 = predict( data )
+
                 # calculate
                 d2 = d1[['store', 'prediction']].groupby( 'store' ).sum().reset_index()
+                
                 # send message    
                 msg = f"A Loja {d2['store'].values[0]} deverá vender R$ {d2['prediction'].values[0]:,.2f} nas próximas 6 semanas."
+                
                 enviar_mensagens ( chat_id, msg )
                 return Response( 'OK', status=200 )
+            
             else:
                 enviar_mensagens ( chat_id, 'Loja não Encontrada')
                 return Response( 'OK', status=200 )
+            
         else:
             enviar_mensagens ( chat_id, 'Este não é um ID de Loja válido.')
             return Response( 'OK', status=200 )
