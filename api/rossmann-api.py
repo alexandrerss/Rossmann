@@ -17,7 +17,7 @@ TOKEN = '6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc'
 # https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/sendMessage?chat_id=840661273&text=Oi Usuario, bom dia!
 
 # webhook
-# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/setWebhook?url=https://0c7a9df79114bb.lhr.life
+# https://api.telegram.org/bot6493569937:AAF_tjVyzyCVG_Sw1Smw7AjFC4uqhlmqpWc/setWebhook?url=https://a476044498c3ba.lhr.life
 
 # send message
 def enviar_mensagens(chat_id, text ):
