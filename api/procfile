@@ -1,1 +1,1 @@
-web: python rossmann-api    .py
+web: python rossmann-api.py
