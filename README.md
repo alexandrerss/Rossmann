@@ -1,6 +1,6 @@
 # Previsão de Vendas das Lojas Rossmann
 
-![logo](img/Rossmann.jpg)
+![logo](img/rossmann.jpg)
 
 Rossmann é uma das maiores redes de drogarias da Europa, com cerca de 56.200 funcionários e mais de 4.000 lojas. Em 2019, as lojas Rossmann tiveram um volume de negócios superior a 10 mil milhões de euros na Alemanha, Polônia, Hungria, República Checa, Turquia, Albânia, Kosovo e Espanha.
 
